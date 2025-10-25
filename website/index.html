@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Tami // Vault-Tec Terminal</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <div class="crt-overlay"></div>
+
+  <audio id="boot-audio" src="boot-beep.mp3" preload="auto"></audio>
+
+  <main class="terminal">
+    
+    <section class="block boot-block" id="boot">
+      <div>> VAULT-TEC PERSONAL TERMINAL v3.7</div>
+      <div>> AUTHORIZED USER: <span class="accent">TAMI</span></div>
+      <div>> CLEARANCE: <span class="accent">ENGINEER</span></div>
+      <div>> STATUS: <span class="accent online">ONLINE</span></div>
+      <div>--------------------------------------------------</div>
+    </section>
+
+    <section class="block" id="profile">
+      <div class="title">> PROFILE.LOAD</div>
+
+      <div class="kv">
+        <span>NAME</span><span class="dots"></span><span>Tami</span>
+      </div>
+      <div class="kv">
+        <span>CLASS</span><span class="dots"></span><span>Fullstack Dev / Systems Tinkerer</span>
+      </div>
+      <div class="kv">
+        <span>ALIGNMENT</span><span class="dots"></span><span>Chaotic Good</span>
+      </div>
+      <div class="kv">
+        <span>XP FOCUS</span><span class="dots"></span><span>Web Apps • System Design • ML/AI</span>
+      </div>
+      <div class="kv">
+        <span>SIDE QUESTS</span><span class="dots"></span><span>Cybersecurity • Networking</span>
+      </div>
+      <div class="kv">
+        <span>ENDGAME GOAL</span><span class="dots"></span><span>Ship an Indie Game + an MMORPG</span>
+      </div>
+      <div class="kv">
+        <span>SOCIAL MODE</span><span class="dots"></span><span>Open to collab & repo contribs</span>
+      </div>
+      <div class="kv">
+        <span>VITALS</span><span class="dots"></span><span>Caffeine: LOW | Curiosity: CRITICAL</span>
+      </div>
+    </section>
+
+    <section class="block" id="stats-monitor">
+      <div class="title">> STATUS.MONITOR</div>
+
+      <div class="monitor-grid">
+        <div class="monitor-col">
+          <div class="bar-label">LVL</div>
+          <div class="bar-line">23</div>
+
+          <div class="bar-label">HP</div>
+          <div class="bar-meter">
+            <div class="bar-fill hp" style="width:82%;"></div>
+          </div>
+          <div class="bar-num">82%</div>
+
+          <div class="bar-label">ENERGY</div>
+          <div class="bar-meter">
+            <div class="bar-fill energy" style="width:57%;"></div>
+          </div>
+          <div class="bar-num">57%</div>
+
+          <div class="bar-label">FOCUS</div>
+          <div class="bar-meter">
+            <div class="bar-fill focus" style="width:73%;"></div>
+          </div>
+          <div class="bar-num">73%</div>
+
+          <div class="bar-label warn">COFFEE</div>
+          <div class="bar-meter">
+            <div class="bar-fill coffee" style="width:19%;"></div>
+          </div>
+          <div class="bar-num warn">19%  << WARNING, YOU DON'T EVEN DRINK COFFEE</div>
+        </div>
+
+        <div class="monitor-col side-notes">
+          <div>> ALIGNMENT: CHAOTIC GOOD</div>
+          <div>> AGILITY: FRONTEND SPEED + BACKEND STABILITY</div>
+          <div>> TRAIT: "Fixes prod bugs under pressure I promise, just not this container. Feeling lazy rn."</div>
+          <div>> STATE: Conscious (probably)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILL TREE -->
+    <section class="block" id="skills">
+      <div class="title">> SKILL_TREE.DUMP</div>
+
+      <div class="sub">CORE LANGUAGES</div>
+      <ul class="list">
+        <li>C# / .NET</li>
+        <li>TypeScript / JavaScript</li>
+        <li>HTML / CSS</li>
+        <li>Java / PHP / Python</li>
+      </ul>
+
+      <div class="sub">FRAMEWORKS / ENGINES</div>
+      <ul class="list">
+        <li>React / Vue / AngularJS / Blazor</li>
+        <li>Node.js / Express</li>
+        <li>Flutter / Laravel</li>
+      </ul>
+
+      <div class="sub">DATA / CLOUD</div>
+      <ul class="list">
+        <li>SQL Server / PostgreSQL / MongoDB</li>
+        <li>Azure / AWS / Firebase</li>
+      </ul>
+
+      <div class="sub">OPS / UTILITIES</div>
+      <ul class="list">
+        <li>GitHub Actions / Docker</li>
+        <li>Jest / Playwright / Cypress</li>
+        <li>Figma (UI/UX prototyping)</li>
+      </ul>
+    </section>
+
+    <section class="block" id="loop">
+      <div class="title">> RUNTIME.BEHAVIOR</div>
+      <pre class="code">
+        while (alive)
+        {
+            buildFeature();
+
+            if (breaksInProd)
+            {
+                learn();
+                refactor();
+                pushFix();
+            }
+        }
+      </pre>
+      <div class="inline-hint"># methodology: agile-ish</div>
+    </section>
+
+    <section class="block" id="stats">
+      <div class="title">> GITHUB.TELEMETRY(CURRENT CLEARANCE= PUBLIC REPO INFO)</div>
+
+      <div class="stats-row">
+        <img
+          src="https://github-readme-stats.vercel.app/api?username=TamiloreO&theme=chartreuse-dark&hide_border=true&show_icons=true"
+          alt="github stats"
+          class="stat-card"
+        />
+        <img
+          src="https://nirzak-streak-stats.vercel.app/?user=TamiloreO&theme=chartreuse-dark&hide_border=true"
+          alt="streak"
+          class="stat-card"
+        />
+        <img
+          src="https://github-readme-stats.vercel.app/api/top-langs/?username=TamiloreO&theme=chartreuse-dark&hide_border=true&layout=compact"
+          alt="top languages"
+          class="stat-card"
+        />
+      </div>
+    </section>
+
+    <section class="block" id="quote">
+      <div class="title">> MOTIVATION.SUBROUTINE</div>
+      <img
+        src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=vue-dark"
+        alt="dev quote"
+        class="quote-card"
+      />
+    </section>
+
+    <section class="block" id="contact">
+      <div class="title">> CONTACT.CHANNELS</div>
+      <div class="para">
+        If you build cool things, or want to break cool things on purpose,
+        or just found a bug and screamed, you are cleared for contact.
+      </div>
+
+      <div class="contact-grid">
+        <div>> COLLAB: open</div>
+        <div>> GAME DEV BRAINSTORM: open</div>
+        <div>> SECURITY CHAT: open</div>
+      </div>
+
+      <div class="visits">
+        VISITOR LOG →
+        <img
+          src="https://visitcount.itsvg.in/api?id=TamiloreO&icon=5&color=6"
+          alt="visitor counter"
+        />
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>> END OF FILE_</span><span class="cursor"></span>
+    </footer>
+
+  </main>
+
+  <script>
+    const audio = document.getElementById('boot-audio');
+    window.addEventListener('load', () => {
+      document.body.classList.add('booted');
+      if (audio) {
+        audio.volume = 0.4;
+        audio.play().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>

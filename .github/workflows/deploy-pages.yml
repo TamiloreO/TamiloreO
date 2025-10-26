@@ -1,80 +1,43 @@
-name: Update README Terminal Preview
+name: Deploy site to GitHub Pages
 
 on:
-  schedule:
-    - cron: "0 9 * * 1"
-  workflow_dispatch:     
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
-  contents: write         
-  pages: read
-  id-token: write
+  contents: read        
+  pages: write          
+  id-token: write       
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  screenshot:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
+      - name: Prepare static site
+        run: |
+          mkdir dist
+          cp -r website/* dist/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          persist-credentials: true
+          path: dist
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install Playwright
-        run: |
-          npm init -y
-          npm install playwright@1.48.0
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
-
-      - name: Capture screenshot of live terminal
-        run: |
-          node - << 'EOF'
-          const { chromium } = require('playwright');
-
-          (async () => {
-            const browser = await chromium.launch();
-            const page = await browser.newPage({
-              viewport: { width: 1280, height: 800 },
-            });
-
-            await page.goto('https://tamiloreo.github.io/TamiloreO/', {
-              waitUntil: 'networkidle'
-            });
-
-            await page.waitForTimeout(1500);
-
-            const terminal = await page.$('main.terminal');
-            if (terminal) {
-              await terminal.screenshot({
-                path: 'assets/terminal-preview.png'
-              });
-            } else {
-              await page.screenshot({
-                path: 'assets/terminal-preview.png',
-                fullPage: false
-              });
-            }
-
-            await browser.close();
-          })();
-          EOF
-
-      - name: Commit and push if changed
-        run: |
-          git config user.name "terminal-bot"
-          git config user.email "actions@users.noreply.github.com"
-
-          if [[ `git status --porcelain` ]]; then
-            git add assets/terminal-preview.png
-            git commit -m "chore: auto-update terminal preview"
-            git push
-          else
-            echo "No visual changes, nothing to commit."
-          fi
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

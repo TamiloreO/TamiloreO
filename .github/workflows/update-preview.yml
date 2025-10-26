@@ -52,6 +52,9 @@ jobs:
 
             const terminal = await page.$('main.terminal');
             if (terminal) {
+              await page.waitForTimeout(1500);
+              await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight / 2));
+              await page.waitForTimeout(500);
               await terminal.screenshot({
                 path: 'assets/terminal-preview.png'
               });

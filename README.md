@@ -23,11 +23,3 @@
 </a>
 
 </div>
-
-## What is next
-
-[ROADMAP.md](ROADMAP.md) tracks the v2 build in phases: the 3D shell, a controllable character, the explorable hub, interactable project stations, a turn-based mini-game, then the mobile and accessibility pass. Open issues carry the smaller items.
-
-## License
-
-[MIT](LICENSE) © Oluwatamilore Olufohunsi
